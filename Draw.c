@@ -5368,7 +5368,7 @@ int sumlayer(void)
 }
 void hidesafe(int bnbr)
 {
-    int found = 0;
+    int found = INT_MAX;
     int i;
     for (i = LIFOpointer - 1; i >= 0; i--)
     {
@@ -5380,7 +5380,7 @@ void hidesafe(int bnbr)
         }
         blithide(LIFO[i], 0);
     }
-    if (!found)
+    if (found!=INT_MAX)
     {
         for (i = zeroLIFOpointer - 1; i >= 0; i--)
         {
@@ -5418,7 +5418,7 @@ void hidesafe(int bnbr)
             BlitShowBuffer(LIFO[i], spritebuff[LIFO[i]].x, spritebuff[LIFO[i]].y, 0);
         }
     }
-    else
+    else if(found!=INT_MAX)
     {
         for (i = found; i < LIFOpointer; i++)
         {
@@ -5429,7 +5429,7 @@ void hidesafe(int bnbr)
 
 void showsafe(int bnbr, int x, int y)
 {
-    int found = 0;
+    int found = INT_MAX;
     int i;
     for (i = LIFOpointer - 1; i >= 0; i--)
     {
@@ -5441,7 +5441,7 @@ void showsafe(int bnbr, int x, int y)
         }
         blithide(LIFO[i], 0);
     }
-    if (!found)
+    if (found!=INT_MAX)
     {
         for (i = zeroLIFOpointer - 1; i >= 0; i--)
         {
@@ -5467,7 +5467,7 @@ void showsafe(int bnbr, int x, int y)
             BlitShowBuffer(LIFO[i], spritebuff[LIFO[i]].x, spritebuff[LIFO[i]].y, 0);
         }
     }
-    else
+    else if(found!=INT_MAX)
     {
         for (i = found + 1; i < LIFOpointer; i++)
         {
